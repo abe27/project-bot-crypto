@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ActivitiesLog;
+use App\Models\TimeFrame;
 use Illuminate\Http\Request;
 
-class ActivitiesLogController extends Controller
+class TimeFrameController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ActivitiesLogController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ActivitiesLog  $activitiesLog
+     * @param  \App\Models\TimeFrame  $timeFrame
      * @return \Illuminate\Http\Response
      */
-    public function show(ActivitiesLog $activitiesLog)
+    public function show(TimeFrame $timeFrame)
     {
         //
     }
@@ -52,10 +52,10 @@ class ActivitiesLogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ActivitiesLog  $activitiesLog
+     * @param  \App\Models\TimeFrame  $timeFrame
      * @return \Illuminate\Http\Response
      */
-    public function edit(ActivitiesLog $activitiesLog)
+    public function edit(TimeFrame $timeFrame)
     {
         //
     }
@@ -64,10 +64,10 @@ class ActivitiesLogController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ActivitiesLog  $activitiesLog
+     * @param  \App\Models\TimeFrame  $timeFrame
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ActivitiesLog $activitiesLog)
+    public function update(Request $request, TimeFrame $timeFrame)
     {
         //
     }
@@ -75,10 +75,10 @@ class ActivitiesLogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ActivitiesLog  $activitiesLog
+     * @param  \App\Models\TimeFrame  $timeFrame
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ActivitiesLog $activitiesLog)
+    public function destroy(TimeFrame $timeFrame)
     {
         //
     }

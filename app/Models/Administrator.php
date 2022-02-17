@@ -6,20 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\Nanoids;
 
-class ActivitiesLog extends Model
+class Administrator extends Model
 {
     use HasFactory, Nanoids;
 
-    protected $fillable = [
-        'subject',
-        'urls',
-        'methods',
-        'address',
-        'agent',
-        'user_id',
-    ];
+    public $fillable = ['user_id', 'is_active'];
 
-    public function user()
+    public function users()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
