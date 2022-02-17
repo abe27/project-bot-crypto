@@ -44,7 +44,7 @@ const Login = ({ status, canResetPassword }) => {
         toast({
           position: 'top-right',
           title: 'เกิดข้อผิดพลาด',
-          description: e.email,
+          description: 'กรุณาตรวจสอบข้อมูลด้วย',
           status: 'error',
           duration: 3500,
           isClosable: true,

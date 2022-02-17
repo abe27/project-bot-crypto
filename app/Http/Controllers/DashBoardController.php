@@ -18,7 +18,7 @@ class DashBoardController extends Controller
     {
         $data = [
             'breadcrumbs' => [
-                ['title' => 'หน้าแรก', 'url' => 'dashboard', 'active' => true],
+                ['title' => 'หน้าแรก', 'url' => 'dashboard.index', 'active' => true],
             ],
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
