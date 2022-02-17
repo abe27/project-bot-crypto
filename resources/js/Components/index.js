@@ -1,4 +1,5 @@
 import Header from './Header'
 import ValidationErrors from './ValidationErrors'
+import Breadcrumbs from './Breadcrumbs'
 
-export { Header, ValidationErrors }
+export { Breadcrumbs, Header, ValidationErrors }

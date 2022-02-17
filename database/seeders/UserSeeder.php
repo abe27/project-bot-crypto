@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class UserSeeder extends Seeder
@@ -21,6 +22,12 @@ class UserSeeder extends Seeder
         $data = json_decode($json);
         foreach ($data as $i) {
             $fullname = $i->first_name . ' ' . $i->last_name;
+            $user = new User();
+            $user->name = $fullname;
+            $user->email = $i->email;
+            $user->password = Hash::make($i->password);
+            $user->verified = $i->verified;
+            $user->save();
             $this->command->info('seed data :=> ' . $fullname);
         }
     }
