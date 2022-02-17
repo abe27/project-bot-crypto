@@ -40,20 +40,29 @@ const Login = ({ status, canResetPassword }) => {
     e.preventDefault()
 
     post(route('login'), {
-      onError: ErrorHandler,
+      onError: () => {
+        toast({
+          position: 'top-right',
+          title: 'เกิดข้อผิดพลาด',
+          description: e.email,
+          status: 'error',
+          duration: 3500,
+          isClosable: true,
+        })
+      },
     })
   }
 
   const ErrorHandler = (e) => {
     console.dir(e)
-    toast({
-      position: 'top-right',
-      title: 'เกิดข้อผิดพลาด',
-      description: e.email,
-      status: 'error',
-      duration: 3500,
-      isClosable: true,
-    })
+    // toast({
+    //   position: 'top-right',
+    //   title: 'เกิดข้อผิดพลาด',
+    //   description: e.email,
+    //   status: 'error',
+    //   duration: 3500,
+    //   isClosable: true,
+    // })
   }
 
   return (

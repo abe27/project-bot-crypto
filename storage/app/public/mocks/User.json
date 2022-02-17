@@ -13,7 +13,8 @@
       }
     ],
     "anti_spam_code": "2530",
-    "verified": true
+    "verified": true,
+    "is_admin": true
   },
   {
     "first_name": "Titapon",
@@ -29,6 +30,24 @@
       }
     ],
     "anti_spam_code": "2558",
-    "verified": true
+    "verified": true,
+    "is_admin": false
+  },
+  {
+    "first_name": "Kanomthai",
+    "last_name": "Yuenyang",
+    "email": "kanomthaios@hotmail.com",
+    "password": "1q2w3e4r5t6y",
+    "exchange": [
+      {
+        "name": "Binance", "limit": 50, "order": 1
+      },
+      {
+        "name": "Bitkub", "limit": 50, "order": 1
+      }
+    ],
+    "anti_spam_code": "2565",
+    "verified": true,
+    "is_admin": false
   }
 ]

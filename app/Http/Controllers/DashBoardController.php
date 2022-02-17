@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 class DashBoardController extends Controller
 {
@@ -13,7 +16,16 @@ class DashBoardController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'breadcrumbs' => [
+                ['title' => 'หน้าแรก', 'url' => 'dashboard', 'active' => true],
+            ],
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'laravelVersion' => Application::VERSION,
+            'phpVersion' => PHP_VERSION,
+        ];
+        return Inertia::render('Dashboard', $data);
     }
 
     /**
