@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call([SpecificationSeeder::class]);
         $this->call([CategorySeeder::class]);
         $this->call([AssetSeeder::class]);
+        $this->call([CurrencySeeder::class]);
         Schema::enableForeignKeyConstraints();
     }
 }
