@@ -1,94 +1,125 @@
-import React, { useEffect } from 'react';
-import Button from '@/Components/Button';
-import Checkbox from '@/Components/Checkbox';
-import Guest from '@/Layouts/Guest';
-import Input from '@/Components/Input';
-import Label from '@/Components/Label';
-import ValidationErrors from '@/Components/ValidationErrors';
-import { Head, Link, useForm } from '@inertiajs/inertia-react';
+import React, { useEffect } from 'react'
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Checkbox,
+  Stack,
+  Link,
+  Button,
+  useToast,
+} from '@chakra-ui/react'
+import { useForm } from '@inertiajs/inertia-react'
+import { Header } from '@/Components'
+import { Guest } from '@/Layouts'
 
-export default function Login({ status, canResetPassword }) {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        email: '',
-        password: '',
-        remember: '',
-    });
+const Login = ({ status, canResetPassword }) => {
+  const toast = useToast()
+  const { data, setData, post, processing, errors, reset } = useForm({
+    email: '',
+    password: '',
+    remember: '',
+  })
 
-    useEffect(() => {
-        return () => {
-            reset('password');
-        };
-    }, []);
+  useEffect(() => {
+    return () => {
+      reset('password')
+    }
+  }, [])
 
-    const onHandleChange = (event) => {
-        setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
-    };
+  const onHandleChange = (event) => {
+    setData(
+      event.target.name,
+      event.target.type === 'checkbox'
+        ? event.target.checked
+        : event.target.value,
+    )
+  }
 
-    const submit = (e) => {
-        e.preventDefault();
+  const submit = (e) => {
+    e.preventDefault()
 
-        post(route('login'));
-    };
+    post(route('login'), {
+      onError: ErrorHandler,
+    })
+  }
 
-    return (
-        <Guest>
-            <Head title="Log in" />
+  const ErrorHandler = (e) => {
+    console.dir(e)
+    toast({
+      position: 'top-right',
+      title: 'เกิดข้อผิดพลาด',
+      description: e.email,
+      status: 'error',
+      duration: 3500,
+      isClosable: true,
+    })
+  }
 
-            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
-
-            <ValidationErrors errors={errors} />
-
-            <form onSubmit={submit}>
-                <div>
-                    <Label forInput="email" value="Email" />
-
-                    <Input
-                        type="text"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        isFocused={true}
-                        handleChange={onHandleChange}
-                    />
-                </div>
-
-                <div className="mt-4">
-                    <Label forInput="password" value="Password" />
-
-                    <Input
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="current-password"
-                        handleChange={onHandleChange}
-                    />
-                </div>
-
-                <div className="block mt-4">
-                    <label className="flex items-center">
-                        <Checkbox name="remember" value={data.remember} handleChange={onHandleChange} />
-
-                        <span className="ml-2 text-sm text-gray-600">Remember me</span>
-                    </label>
-                </div>
-
-                <div className="flex items-center justify-end mt-4">
-                    {canResetPassword && (
-                        <Link
-                            href={route('password.request')}
-                            className="underline text-sm text-gray-600 hover:text-gray-900"
-                        >
-                            Forgot your password?
-                        </Link>
-                    )}
-
-                    <Button className="ml-4" processing={processing}>
-                        Log in
-                    </Button>
-                </div>
-            </form>
-        </Guest>
-    );
+  return (
+    <Guest>
+      <Header title="เข้าสู่ระบบ" description="ลงชื่อเข้าใช้งานระบบ" />
+      <form onSubmit={submit}>
+        <Stack marginBottom={4}>
+          <FormControl id="email">
+            <FormLabel>ที่อยู่อีเมล์</FormLabel>
+            <Input
+              type="email"
+              name="email"
+              value={data.email}
+              onChange={onHandleChange}
+              placeholder="ที่อยู่อีเมล์"
+            />
+          </FormControl>
+        </Stack>
+        <Stack marginBottom={4}>
+          <FormControl id="password">
+            <FormLabel>รหัสผ่าน</FormLabel>
+            <Input
+              type="password"
+              name="password"
+              value={data.password}
+              onChange={onHandleChange}
+              placeholder="รหัสผ่าน"
+            />
+          </FormControl>
+        </Stack>
+        <Stack spacing={8} marginTop={8}>
+          <Stack
+            direction={{ base: 'column', sm: 'row' }}
+            align={'start'}
+            justify={'space-between'}
+          >
+            <Checkbox
+              name="remember"
+              value={data.remember}
+              onChange={onHandleChange}
+            >
+              จำไว้ในระบบ
+            </Checkbox>
+            {canResetPassword && (
+              <Link href={route('password.request')} color={'blue.900'}>
+                ลืมรหัสผ่าน?
+              </Link>
+            )}
+          </Stack>
+          <Button
+            isLoading={processing}
+            colorScheme={'purple'}
+            variant={'solid'}
+            type="submit"
+          >
+            เข้าสู่ระบบ
+          </Button>
+          <Stack align={'center'}>
+            <Link href={route('register')} color={'blue.900'}>
+              ยังไม่มีบัญชีผู้ใช้งาน
+            </Link>
+          </Stack>
+        </Stack>
+      </form>
+    </Guest>
+  )
 }
+
+export default Login

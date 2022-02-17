@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\ApiExchangeController;
+use App\Http\Controllers\DashBoardController;
+use App\Http\Controllers\HelpCenterController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TrackingInvestmentController;
+use App\Http\Controllers\TrendController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -22,6 +28,15 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
+});
+
+Route::middleware(['auth', 'verified'])->group(function() {
+    Route::get('/dashboard/index', [DashBoardController::class, 'index'])->name('dashboard.index');
+    Route::get('/trend/index', [TrendController::class, 'index'])->name('trend.index');// trend.index
+    Route::get('/tracking/index', [TrackingInvestmentController::class, 'index'])->name('tracking-investment.index');// tracking-investment
+    Route::get('/api-data/index', [ApiExchangeController::class, 'index'])->name('api-data.index');
+    Route::get('/help-center/index', [HelpCenterController::class, 'index'])->name('help-center.index');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.me');
 });
 
 Route::get('/dashboard', function () {
