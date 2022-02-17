@@ -53,18 +53,6 @@ const Login = ({ status, canResetPassword }) => {
     })
   }
 
-  const ErrorHandler = (e) => {
-    console.dir(e)
-    // toast({
-    //   position: 'top-right',
-    //   title: 'เกิดข้อผิดพลาด',
-    //   description: e.email,
-    //   status: 'error',
-    //   duration: 3500,
-    //   isClosable: true,
-    // })
-  }
-
   return (
     <Guest>
       <Header title="เข้าสู่ระบบ" description="ลงชื่อเข้าใช้งานระบบ" />

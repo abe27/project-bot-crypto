@@ -28,7 +28,6 @@ class UserSeeder extends Seeder
             $user->password = Hash::make($i->password);
             $user->verified = $i->verified;
             $user->save();
-            $this->command->info('seed data :=> ' . $fullname);
         }
     }
 }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('id')->primary();
             $table->uuid('user_id');
             $table->string('exchange_id', 21);
-            $table->decimal('limited_investment', 7, 2)->nullable()->default(0.00);
+            $table->decimal('limited_investment', 10, 2)->nullable()->default(0.00);
             $table->integer('open_order')->nullable()->default(1);//0 = unlimited
             $table->boolean('is_active')->nullable()->default(false);
             $table->timestamps();

@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,8 +16,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Schema::disableForeignKeyConstraints();
-        // \App\Models\User::factory(10)->create();
         $this->call([UserSeeder::class]);
+        $this->call([ProfileSeeder::class]);
+        $this->call([AntiSpamCodeSeeder::class]);
+        $this->call([AdministratorSeeder::class]);
+        $this->call([ExchangeGroupSeeder::class]);
+        $this->call([ExchangeSeeder::class]);
+        $this->call([SpecificationSeeder::class]);
+        $this->call([CategorySeeder::class]);
+        $this->call([AssetSeeder::class]);
         Schema::enableForeignKeyConstraints();
     }
 }
