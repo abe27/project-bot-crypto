@@ -193,6 +193,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // ...
+        'ActivityLog' => App\Http\Helpers\Logs::class,
     ])->toArray(),
 
 ];
