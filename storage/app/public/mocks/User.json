@@ -1,0 +1,34 @@
+[
+  {
+    "first_name": "Taweechai",
+    "last_name": "Yuenyang",
+    "email": "krumii.it@gmail.com",
+    "password": "1q2w3e4r5t6y",
+    "exchange": [
+      {
+        "name": "Binance", "limit": 9999999, "order": 0
+      },
+      {
+        "name": "Bitkub", "limit": 9999999, "order": 0
+      }
+    ],
+    "anti_spam_code": "2530",
+    "verified": true
+  },
+  {
+    "first_name": "Titapon",
+    "last_name": "Yuenyang",
+    "email": "taweechai@seiwa-pioneer.com",
+    "password": "1q2w3e4r5t6y",
+    "exchange": [
+      {
+        "name": "Binance", "limit": 50, "order": 1
+      },
+      {
+        "name": "Bitkub", "limit": 50, "order": 1
+      }
+    ],
+    "anti_spam_code": "2558",
+    "verified": true
+  }
+]
