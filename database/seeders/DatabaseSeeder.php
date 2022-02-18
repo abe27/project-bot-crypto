@@ -26,6 +26,10 @@ class DatabaseSeeder extends Seeder
         $this->call([CategorySeeder::class]);
         $this->call([AssetSeeder::class]);
         $this->call([CurrencySeeder::class]);
+        $this->call([StableCoinSeeder::class]);
+        $this->call([TimeFrameSeeder::class]);
+        $this->call([OrderTypeSeeder::class]);
+        $this->call([ApiExchangeSeeder::class]);
         Schema::enableForeignKeyConstraints();
     }
 }
