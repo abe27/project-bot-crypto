@@ -20,6 +20,6 @@ class TrendOnTime extends Model
 
     public function time_frames()
     {
-        return $this->hasOne(Trend::class, 'id', 'time_frame_id');
+        return $this->hasOne(TimeFrame::class, 'id', 'time_frame_id');
     }
 }

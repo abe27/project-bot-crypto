@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Sanctum;
 
+use App\Http\Controllers\Sanctum\BaseController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class SanctumAuthController extends SanctumBaseController
+class AuthorizationController extends BaseController
 {
     public function register(Request $request)
     {

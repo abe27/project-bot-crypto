@@ -29,12 +29,12 @@ class Trend extends Model
 
     public function exchanges()
     {
-        return $this->hasOne(Asset::class, 'id', 'exchange_id');
+        return $this->hasOne(Exchange::class, 'id', 'exchange_id');
     }
 
     public function currencies()
     {
-        return $this->hasOne(Asset::class, 'id', 'currency_id');
+        return $this->hasOne(Currency::class, 'id', 'currency_id');
     }
 
     public function timeframes()
