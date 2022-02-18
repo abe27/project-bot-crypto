@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 use App\Traits\Nanoids;
 
 class ActivityLog extends Model
 {
-    use HasFactory, Nanoids;
+    use HasFactory, Nanoids, HasApiTokens;
     protected $fillable = [
         'subject',
         'urls',
