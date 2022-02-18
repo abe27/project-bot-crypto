@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Trend;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 class TrendController extends Controller
 {
@@ -14,7 +17,19 @@ class TrendController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'title' => 'สิ่งที่หน้าสนใจ',
+            'description' => 'รายการ Crypto ที่หน้าสนใจอยู่ในขณะนี้',
+            'breadcrumbs' => [
+                ['title' => 'หน้าแรก', 'url' => 'dashboard.index', 'active' => false],
+                ['title' => 'สิ่งที่หน้าสนใจ', 'url' => 'trend.index', 'active' => true],
+            ],
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'laravelVersion' => Application::VERSION,
+            'phpVersion' => PHP_VERSION,
+        ];
+        return Inertia::render('Trend', $data);
     }
 
     /**
