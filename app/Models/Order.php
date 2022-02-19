@@ -20,6 +20,7 @@ class Order extends Model
         'price',
         'total_coin',
         'fee',
+        'trend',
         'type',
         'status',
         'is_active',
@@ -32,11 +33,11 @@ class Order extends Model
 
     public function trends()
     {
-        return $this->hasOne(User::class, 'id', 'trend_id');
+        return $this->hasOne(Trend::class, 'id', 'trend_id');
     }
 
     public function order_types()
     {
-        return $this->hasOne(User::class, 'id', 'order_type_id');
+        return $this->hasOne(OrderType::class, 'id', 'order_type_id');
     }
 }

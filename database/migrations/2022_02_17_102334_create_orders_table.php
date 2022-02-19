@@ -24,6 +24,7 @@ return new class extends Migration
             $table->decimal('price', 65, 18)->nullable()->default(0);//rat
             $table->decimal('total_coin', 65, 18)->nullable()->default(0);//rec
             $table->decimal('fee', 65, 18)->nullable()->default(0);//fee
+            $table->enum('trend', ['Buy', 'Sell'])->nullable()->default('Buy');
             $table->enum('type', ['Auto', 'Manual'])->nullable()->default('Auto');
             $table->enum('status', ['-', 'Limit', 'Close', 'Hold', 'Open', 'Cancel'])->nullable()->default('-');
             $table->boolean('is_active')->nullable()->default(false);

@@ -37,6 +37,7 @@ class OrderController extends BaseController
             'price' => 'required',
             'total_coin' => 'required',
             'fee' => 'required',
+            'trend' => 'required',
             'type' => 'required',
             'status' => 'required',
             'is_active' => 'required',
@@ -59,6 +60,7 @@ class OrderController extends BaseController
             $order->price = $request->price;
             $order->total_coin = $request->total_coin;
             $order->fee = $request->fee;
+            $order->trend = $request->trend;
             $order->type = $request->type;
             $order->status = $request->status;
             $order->is_active = $request->is_active;
