@@ -16,11 +16,13 @@ class Order extends Model
         'trend_id',
         'order_type_id',
         'orderno',
-        'at_price',
+        'hashno',
+        'price',
         'total_coin',
+        'fee',
         'type',
         'status',
-        'is_checked',
+        'is_active',
     ];
 
     public function users()

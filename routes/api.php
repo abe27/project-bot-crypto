@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Sanctum\AuthorizationController;
 use App\Http\Controllers\Sanctum\ExchangeController;
+use App\Http\Controllers\Sanctum\OrderController;
 use App\Http\Controllers\Sanctum\TrendController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -38,10 +39,10 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
     Route::prefix('/order')->group(function () {
-        Route::get('/get', [TrendController::class, 'get'])->name('api.order.get');
-        Route::post('/create', [TrendController::class, 'store'])->name('api.order.create');
-        Route::get('/{trend}/show', [TrendController::class, 'show'])->name('api.order.show');
-        Route::put('/{trend}/update', [TrendController::class, 'update'])->name('api.order.update');
-        Route::delete('/{trend}/delete', [TrendController::class, 'destroy'])->name('api.order.destroy');
+        Route::get('/get', [OrderController::class, 'get'])->name('api.order.get');
+        Route::post('/create', [OrderController::class, 'store'])->name('api.order.create');
+        Route::get('/{trend}/show', [OrderController::class, 'show'])->name('api.order.show');
+        Route::put('/{trend}/update', [OrderController::class, 'update'])->name('api.order.update');
+        Route::delete('/{trend}/delete', [OrderController::class, 'destroy'])->name('api.order.destroy');
     });
 });
